@@ -13,10 +13,12 @@ const app = require("./app");
 
 const PORT = process.env.PORT || 3002;
 
+const database = require("./config/database")
+
 const startServer = async () => {
     try {
 
-        // await connectDB();
+        await database();
 
         app.on("error", error => {
             console.log(`ERROR`, error);
