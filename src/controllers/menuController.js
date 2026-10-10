@@ -11,7 +11,7 @@ const createMenu = async (req, res, next) => {
             isAvailable
         } = req.body;
 
-        const newMenu = await MenuuModel.create({
+        const newMenu = await MenuModel.create({
             name, 
             description,
             price,

@@ -53,7 +53,7 @@ const updateValidation = (req, res, next) => {
         description: joi.string().trim().max(500).allow(""),
         price: joi.number().precision(2).positive(),
         category: joi.string()
-                        .vaild(...menuCategories)
+                        .valid(...menuCategories)
                         .insensitive()
                         .trim(),
         isAvailable: joi.boolean(),
@@ -110,13 +110,10 @@ const fileValidation = (req, res, next) => {
     if (error) {
         return res.status(400).json({
         message: "Validation Error",
-        errors: fileError.details.map((d) => d.message),
+        errors: error.details.map((d) => d.message),
         });
     }
 
-
-
-    req.body = value;
 
     next();
 

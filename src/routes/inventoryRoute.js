@@ -22,7 +22,7 @@ inventoryRoutes.get("/", getAllInventories);
 inventoryRoutes.get("/:id", getInventoryById);
 
 // Update Inventory
-inventoryRoutes.patch("/:id", updateInventory);
+inventoryRoutes.put("/:id", updateInventory);
 
 // Delete Inventory
 inventoryRoutes.delete("/:id", deleteInventory);

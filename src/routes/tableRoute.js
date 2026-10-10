@@ -12,6 +12,13 @@ const {
 } = require("../controllers/tableController");
 
 
+const {
+    createTableValidation,
+    updateTableValidation
+} = require("../validations/tableValidation")
+
+
+
 // TEST
 tableRoutes.get("/test", (req, res) => {
     return res.status(200).json({
@@ -21,11 +28,11 @@ tableRoutes.get("/test", (req, res) => {
 
 
 // Create Table
-tableRoutes.post("/", createTable);
+tableRoutes.post("/", createTableValidation, createTable);
 
 
 // Get Table By Capacity
-tableRoutes.get("/capacity", getTableByCapacity);
+tableRoutes.get("/capacity",  getTableByCapacity);
 
 
 // Get Table By Id
@@ -37,7 +44,7 @@ tableRoutes.get("/", getAllTables);
 
 
 // Update Table
-tableRoutes.put("/:id", updateTable);
+tableRoutes.put("/:id", updateTableValidation, updateTable);
 
 
 // Delete Table
